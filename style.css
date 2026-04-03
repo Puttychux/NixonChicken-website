@@ -27,7 +27,7 @@ body {
     color: var(--color-text);
     font-family: var(--font-body);
     line-height: 1.6;
-    padding: var(--space-md);
+    padding: 0; /* padding moved to .site-wrapper margin */
     font-size: 18px;
 }
 
@@ -42,12 +42,37 @@ a:hover {
 
 .site-wrapper {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: var(--space-md) auto;
     border-left: 1px solid rgba(0,0,0,0.1);
     border-right: 1px solid rgba(0,0,0,0.1);
     background-color: #fff;
     padding: 0 var(--space-lg);
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+}
+
+/* --- SCROLL DRIVEN VIDEO HERO --- */
+/* The scroll track creates scrolling distance (300vh).
+   The sticky container pins the video at full viewport size
+   until the track has scrolled past, then the site content follows. */
+.video-scroll-track {
+    position: relative;
+    width: 100%;
+    height: 300vh; /* Scroll distance: 200vh of scrub + 100vh of sticky hold */
+}
+
+.video-sticky-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#scroll-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 /* --- MASTHEAD --- */
@@ -150,7 +175,7 @@ a:hover {
     border: 1px solid var(--color-border);
 }
 
-.img-wrapper img, .img-wrapper video {
+.img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -158,7 +183,7 @@ a:hover {
     transition: transform 0.4s ease;
 }
 
-.img-wrapper:hover img, .img-wrapper:hover video {
+.img-wrapper:hover img {
     transform: scale(1.03);
 }
 

@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- FULL-WIDTH SCROLL-DRIVEN VIDEO HERO -->
+    <!-- This lives completely outside .site-wrapper so it spans edge-to-edge -->
+    <div class="video-scroll-track">
+        <div class="video-sticky-container">
+            <video id="scroll-hero-video" src="assets/Casserole_dish_on_202604030610.mp4" muted playsinline preload="auto"></video>
+        </div>
+    </div>
+
+    <!-- SITE CONTENT: masthead, nav, articles all appear after the video track -->
     <div class="site-wrapper">
         <header class="masthead">
             <div class="masthead-meta">
@@ -37,7 +47,7 @@
             <section class="hero-story">
                 <div class="hero-image">
                     <div class="img-wrapper">
-                        <video id="hero-scroll-video" src="assets/Casserole_dish_on_202604030610.mp4" muted playsinline preload="auto"></video>
+                        <img src="assets/goose.png" alt="A Large and Majestic Goose">
                     </div>
                 </div>
                 <div class="hero-content">
@@ -75,7 +85,7 @@
                     <p class="card-dek">Officials remind residents that prolonged staring into the void without a permit will result in a $500 daily fine and a mandatory town hall meeting.</p>
                     <a href="#" class="read-more small">Read Brief</a>
                 </article>
-                
+
                 <article class="card">
                     <div class="card-img">
                         <img src="https://picsum.photos/seed/bureaucracy/600/600" alt="Office Workers">
@@ -119,11 +129,11 @@
                 </div>
             </section>
         </main>
-        
+
         <footer class="site-footer">
             <h1 class="logo footer-logo">NIXON CHICKEN</h1>
             <p class="footer-tagline">"Loud, Proud, and Deeply Fried."</p>
-            
+
             <div class="staff-box">
                 <h5>Masthead & Operations</h5>
                 <p><strong>Editor in Chief:</strong> J. P. Redtape</p>
@@ -131,54 +141,50 @@
                 <p><strong>Chief Ombudsman & Shredder Operator:</strong> "Missing" Pete Henderson</p>
                 <p><strong>Director of Misinformation:</strong> [REDACTED]</p>
             </div>
-            
+
             <p class="copyright">&copy; 2026 Nixon Chicken Magazine. All rights reserved. Do not attempt to feed the journalists.</p>
         </footer>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById("hero-scroll-video");
-            const section = document.querySelector(".hero-story");
-            
+            const video = document.getElementById("scroll-hero-video");
+            const scrollTrack = document.querySelector(".video-scroll-track");
+
             let scrollY = 0;
             let rafId = null;
-            
-            function initScroll() {
-                window.addEventListener("scroll", () => {
-                    scrollY = window.scrollY;
-                    if (!rafId) {
-                        rafId = requestAnimationFrame(updateVideo);
-                    }
-                }, { passive: true });
-                
-                updateVideo();
-            }
-            
+
+            window.addEventListener("scroll", () => {
+                scrollY = window.scrollY;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updateVideo);
+                }
+            }, { passive: true });
+
             function updateVideo() {
-                if (video.duration) {
-                    const maxScroll = document.querySelector(".hero-image").offsetHeight / 2; // Doubled speed
+                if (video.duration && scrollTrack) {
+                    // The track is 300vh tall; sticky video occupies 100vh.
+                    // So the scrub distance is the remaining 200vh of scroll.
+                    const maxScroll = scrollTrack.offsetHeight - window.innerHeight;
                     let progress = scrollY / maxScroll;
                     progress = Math.max(0, Math.min(1, progress));
                     video.currentTime = video.duration * progress;
                 }
                 rafId = null;
             }
-            
+
             const startVideo = async () => {
                 try {
-                    // Start decoding to avoid choppy frames initially
                     if (typeof video.decode === 'function') {
                         await video.decode();
                     } else {
-                        // Fallback for browsers that do not support video.decode()
                         await video.play();
                         video.pause();
                     }
                 } catch (e) {
-                    console.warn("Video decode failed or unsupported", e);
+                    console.warn("Video decode failed", e);
                 }
-                initScroll();
+                updateVideo(); // Force initial frame
             };
 
             if (video.readyState >= 1) {
