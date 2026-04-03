@@ -144,16 +144,20 @@
             let scrollY = 0;
             let rafId = null;
             
-            window.addEventListener("scroll", () => {
-                scrollY = window.scrollY;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateVideo);
-                }
-            }, { passive: true });
+            function initScroll() {
+                window.addEventListener("scroll", () => {
+                    scrollY = window.scrollY;
+                    if (!rafId) {
+                        rafId = requestAnimationFrame(updateVideo);
+                    }
+                }, { passive: true });
+                
+                updateVideo();
+            }
             
             function updateVideo() {
                 if (video.duration) {
-                    const maxScroll = section.offsetHeight * 1.5; // Slow down the video scrub slightly past the section naturally
+                    const maxScroll = window.innerHeight; // One viewport height
                     let progress = scrollY / maxScroll;
                     progress = Math.max(0, Math.min(1, progress));
                     video.currentTime = video.duration * progress;
@@ -161,9 +165,27 @@
                 rafId = null;
             }
             
-            video.addEventListener("loadedmetadata", () => {
-                updateVideo(); // trigger initial scrub
-            });
+            const startVideo = async () => {
+                try {
+                    // Start decoding to avoid choppy frames initially
+                    if (typeof video.decode === 'function') {
+                        await video.decode();
+                    } else {
+                        // Fallback for browsers that do not support video.decode()
+                        await video.play();
+                        video.pause();
+                    }
+                } catch (e) {
+                    console.warn("Video decode failed or unsupported", e);
+                }
+                initScroll();
+            };
+
+            if (video.readyState >= 1) {
+                startVideo();
+            } else {
+                video.addEventListener("loadedmetadata", startVideo);
+            }
         });
     </script>
 </body>
