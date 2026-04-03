@@ -16,7 +16,7 @@
     <!-- This lives completely outside .site-wrapper so it spans edge-to-edge -->
     <div class="video-scroll-track">
         <div class="video-sticky-container">
-            <video id="scroll-hero-video" src="assets/Casserole_dish_on_202604030610.mp4" muted playsinline preload="auto"></video>
+            <video id="scroll-hero-video" src="assets/Casserole_dish_on_202604030610_scrub.mp4" muted playsinline webkit-playsinline preload="auto"></video>
         </div>
     </div>
 
@@ -146,53 +146,37 @@
         </footer>
     </div>
 
+    <!-- GSAP + ScrollTrigger: industry-standard smooth scroll scrubbing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById("scroll-hero-video");
-            const scrollTrack = document.querySelector(".video-scroll-track");
+        gsap.registerPlugin(ScrollTrigger);
 
-            let scrollY = 0;
-            let rafId = null;
+        const video = document.getElementById("scroll-hero-video");
 
-            window.addEventListener("scroll", () => {
-                scrollY = window.scrollY;
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateVideo);
+        function initScrub() {
+            // Pause and reset to frame 0 — video should never autoplay
+            video.pause();
+            video.currentTime = 0;
+
+            ScrollTrigger.create({
+                trigger: ".video-scroll-track",
+                start: "top top",      // when track top hits viewport top
+                end: "bottom bottom",  // when track bottom hits viewport bottom
+                scrub: 0.5,            // 0.5s smooth lag — cinematic, not laggy
+                onUpdate: (self) => {
+                    // Map scroll progress (0→1) directly to video time
+                    video.currentTime = self.progress * video.duration;
                 }
-            }, { passive: true });
+            });
+        }
 
-            function updateVideo() {
-                if (video.duration && scrollTrack) {
-                    // The track is 300vh tall; sticky video occupies 100vh.
-                    // So the scrub distance is the remaining 200vh of scroll.
-                    const maxScroll = scrollTrack.offsetHeight - window.innerHeight;
-                    let progress = scrollY / maxScroll;
-                    progress = Math.max(0, Math.min(1, progress));
-                    video.currentTime = video.duration * progress;
-                }
-                rafId = null;
-            }
-
-            const startVideo = async () => {
-                try {
-                    if (typeof video.decode === 'function') {
-                        await video.decode();
-                    } else {
-                        await video.play();
-                        video.pause();
-                    }
-                } catch (e) {
-                    console.warn("Video decode failed", e);
-                }
-                updateVideo(); // Force initial frame
-            };
-
-            if (video.readyState >= 1) {
-                startVideo();
-            } else {
-                video.addEventListener("loadedmetadata", startVideo);
-            }
-        });
+        // Init as soon as metadata is available
+        if (video.readyState >= 1) {
+            initScrub();
+        } else {
+            video.addEventListener("loadedmetadata", initScrub, { once: true });
+        }
     </script>
 </body>
 </html>

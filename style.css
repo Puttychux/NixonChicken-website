@@ -57,7 +57,7 @@ a:hover {
 .video-scroll-track {
     position: relative;
     width: 100%;
-    height: 300vh; /* Scroll distance: 200vh of scrub + 100vh of sticky hold */
+    height: 600vh; /* Scroll distance: 500vh of scrub + 100vh of sticky hold */
 }
 
 .video-sticky-container {
