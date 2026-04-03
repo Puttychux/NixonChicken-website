@@ -37,7 +37,7 @@
             <section class="hero-story">
                 <div class="hero-image">
                     <div class="img-wrapper">
-                        <img src="assets/goose.png" alt="Angry goose rotunda">
+                        <video id="hero-scroll-video" src="assets/Surreal_Kitchen_to_Oval_Office_Transition.mp4" muted playsinline preload="auto"></video>
                     </div>
                 </div>
                 <div class="hero-content">
@@ -135,5 +135,36 @@
             <p class="copyright">&copy; 2026 Nixon Chicken Magazine. All rights reserved. Do not attempt to feed the journalists.</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("hero-scroll-video");
+            const section = document.querySelector(".hero-story");
+            
+            let scrollY = 0;
+            let rafId = null;
+            
+            window.addEventListener("scroll", () => {
+                scrollY = window.scrollY;
+                if (!rafId) {
+                    rafId = requestAnimationFrame(updateVideo);
+                }
+            }, { passive: true });
+            
+            function updateVideo() {
+                if (video.duration) {
+                    const maxScroll = section.offsetHeight * 1.5; // Slow down the video scrub slightly past the section naturally
+                    let progress = scrollY / maxScroll;
+                    progress = Math.max(0, Math.min(1, progress));
+                    video.currentTime = video.duration * progress;
+                }
+                rafId = null;
+            }
+            
+            video.addEventListener("loadedmetadata", () => {
+                updateVideo(); // trigger initial scrub
+            });
+        });
+    </script>
 </body>
 </html>
