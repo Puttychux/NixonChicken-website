@@ -157,7 +157,7 @@
             
             function updateVideo() {
                 if (video.duration) {
-                    const maxScroll = window.innerHeight; // One viewport height
+                    const maxScroll = document.querySelector(".hero-image").offsetHeight; // Completes precisely as the image height is scrolled over
                     let progress = scrollY / maxScroll;
                     progress = Math.max(0, Math.min(1, progress));
                     video.currentTime = video.duration * progress;
