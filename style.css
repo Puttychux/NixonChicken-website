@@ -50,25 +50,26 @@ a:hover {
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 
-/* --- SCROLL DRIVEN VIDEO HERO --- */
-/* The scroll track creates scrolling distance (300vh).
-   The sticky container pins the video at full viewport size
-   until the track has scrolled past, then the site content follows. */
-.video-scroll-track {
-    position: relative;
-    width: 100%;
-    height: 600vh; /* Scroll distance: 500vh of scrub + 100vh of sticky hold */
+/* --- AUTOPLAY VIDEO HERO OVERLAY --- */
+/* Fixed overlay covers viewport, fades out after video ends + 1.5s pause */
+.video-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1.2s ease;
 }
 
-.video-sticky-container {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+.video-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
 }
 
-#scroll-hero-video {
+#hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;

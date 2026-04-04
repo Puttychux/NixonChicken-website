@@ -12,15 +12,13 @@
 </head>
 <body>
 
-    <!-- FULL-WIDTH SCROLL-DRIVEN VIDEO HERO -->
-    <!-- This lives completely outside .site-wrapper so it spans edge-to-edge -->
-    <div class="video-scroll-track">
-        <div class="video-sticky-container">
-            <video id="scroll-hero-video" src="assets/Casserole_Cut_1.mp4" muted playsinline webkit-playsinline preload="auto"></video>
-        </div>
+    <!-- AUTOPLAY VIDEO HERO OVERLAY -->
+    <!-- Covers the entire viewport, plays once, pauses 1.5s, then fades to reveal site -->
+    <div id="video-overlay" class="video-overlay">
+        <video id="hero-video" src="assets/Casserole_hero.mp4" muted playsinline webkit-playsinline preload="auto"></video>
     </div>
 
-    <!-- SITE CONTENT: masthead, nav, articles all appear after the video track -->
+    <!-- SITE CONTENT -->
     <div class="site-wrapper">
         <header class="masthead">
             <div class="masthead-meta">
@@ -146,37 +144,27 @@
         </footer>
     </div>
 
-    <!-- GSAP + ScrollTrigger: industry-standard smooth scroll scrubbing -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+        const overlay = document.getElementById("video-overlay");
+        const video = document.getElementById("hero-video");
 
-        const video = document.getElementById("scroll-hero-video");
+        // When video ends: wait 1.5s, then fade out the overlay
+        video.addEventListener("ended", () => {
+            setTimeout(() => {
+                overlay.classList.add("fade-out");
+                // After the CSS transition completes, remove overlay from flow
+                overlay.addEventListener("transitionend", () => {
+                    overlay.style.display = "none";
+                }, { once: true });
+            }, 1500);
+        });
 
-        function initScrub() {
-            // Pause and reset to frame 0 — video should never autoplay
-            video.pause();
-            video.currentTime = 0;
-
-            ScrollTrigger.create({
-                trigger: ".video-scroll-track",
-                start: "top top",      // when track top hits viewport top
-                end: "bottom bottom",  // when track bottom hits viewport bottom
-                scrub: 0.5,            // 0.5s smooth lag — cinematic, not laggy
-                onUpdate: (self) => {
-                    // Map scroll progress (0→1) directly to video time
-                    video.currentTime = self.progress * video.duration;
-                }
-            });
-        }
-
-        // Init as soon as metadata is available
-        if (video.readyState >= 1) {
-            initScrub();
-        } else {
-            video.addEventListener("loadedmetadata", initScrub, { once: true });
-        }
+        // Autoplay as soon as ready
+        video.play().catch(() => {
+            // If autoplay blocked, fade out immediately
+            overlay.classList.add("fade-out");
+            setTimeout(() => { overlay.style.display = "none"; }, 1200);
+        });
     </script>
 </body>
 </html>
