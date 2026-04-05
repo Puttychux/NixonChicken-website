@@ -738,7 +738,7 @@
 
         var scaleH = availH / PAGE_H;
         var scaleW = availW / BOOK_W;
-        var scale  = Math.min(scaleH, scaleW, 1);
+        var scale  = Math.min(scaleH, scaleW, 0.85);
 
         // Apply scale to wrapper; shift margin so the page below doesn't gap
         wrapper.style.transformOrigin = 'top center';
