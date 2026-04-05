@@ -12,19 +12,12 @@
 </head>
 <body>
 
-    <!-- AUTOPLAY VIDEO HERO OVERLAY -->
-    <!-- Covers the entire viewport, plays once, pauses 1.5s, then fades to reveal site -->
-    <div id="video-overlay" class="video-overlay">
-        <video id="hero-video" src="assets/Casserole_hero_v3.mp4" muted playsinline webkit-playsinline preload="auto"></video>
-    </div>
-
     <!-- SITE CONTENT -->
     <div class="site-wrapper">
         <header class="masthead">
             <div class="masthead-meta">
                 <span>VOL. XLII • NO. 12</span>
                 <span>MARCH 21, 2026</span>
-                <span>$4.99 USD</span>
             </div>
             <h1 class="logo">NIXON CHICKEN</h1>
             <p class="tagline">Just the Headlines</p>
@@ -64,7 +57,7 @@
                         <img src="assets/ritz_moon.png" alt="Moon is a cracker">
                     </div>
                     <span class="category-tag">Science & Truth</span>
-                    <h3 class="card-headline">NASA Confirms: The Moon is Just a Stale Ritz Cracker</h3>
+                    <h3 class="card-headline"><a href="/404">NASA Confirms: The Moon is Just a Stale Ritz Cracker</a></h3>
                     <p class="card-dek">Decades of conspiracy theories validated by the James Webb Space Telescope's recent crumbs analysis. We demanded cheese, we got salt.</p>
                 </article>
 
@@ -73,13 +66,13 @@
                         <img src="assets/pigeon_man.png" alt="Man yelling at pigeons">
                     </div>
                     <span class="category-tag">Jurisprudence</span>
-                    <h3 class="card-headline">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</h3>
+                    <h3 class="card-headline"><a href="/404">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</a></h3>
                     <p class="card-dek">7-2 decision protects fundamental rights of "that one guy at the park." Justice Alito notes, "The pigeons know what they did."</p>
                 </article>
 
                 <article class="card text-only">
                     <span class="category-tag">Local Government</span>
-                    <h3 class="card-headline">Zoning Board Classifies 'Existential Dread' as Unpermitted Structure</h3>
+                    <h3 class="card-headline"><a href="/404">Zoning Board Classifies 'Existential Dread' as Unpermitted Structure</a></h3>
                     <p class="card-dek">Officials remind residents that prolonged staring into the void without a permit will result in a $500 daily fine and a mandatory town hall meeting.</p>
                     <a href="#" class="read-more small">Read Brief</a>
                 </article>
@@ -89,7 +82,7 @@
                         <img src="https://picsum.photos/seed/bureaucracy/600/600" alt="Office Workers">
                     </div>
                     <span class="category-tag">Infrastructure</span>
-                    <h3 class="card-headline">DOE Admits Grid is Powered by Three Middle Managers on Treadmills</h3>
+                    <h3 class="card-headline"><a href="/404">DOE Admits Grid is Powered by Three Middle Managers on Treadmills</a></h3>
                     <p class="card-dek">A leaked cache of documents confirms that the eastern seaboard relies entirely on "Gary from Accounts Receivable aggressively trying to close his Apple Watch rings."</p>
                 </article>
 
@@ -103,25 +96,25 @@
                     <div class="dept-col">
                         <h4>The Situation Room</h4>
                         <ul>
-                            <li><a href="#">Pentagon Replaces Strategic Command with Magic 8-Ball</a></li>
-                            <li><a href="#">Is Your Microwave Colluding with the IRS?</a></li>
-                            <li><a href="#">Senator Filibusters by Reading Entire Wikipedia Article for 'Lampshade'</a></li>
+                            <li><a href="/404">Pentagon Replaces Strategic Command with Magic 8-Ball</a></li>
+                            <li><a href="/404">Is Your Microwave Colluding with the IRS?</a></li>
+                            <li><a href="/404">Senator Filibusters by Reading Entire Wikipedia Article for 'Lampshade'</a></li>
                         </ul>
                     </div>
                     <div class="dept-col">
                         <h4>Cultural Debris</h4>
                         <ul>
-                            <li><a href="#">New Start-Up Promises to Disrupt Sleep by Monetizing Your Dreams</a></li>
-                            <li><a href="#">Influencer Apologizes for Sponsoring the Concept of Regret</a></li>
-                            <li><a href="#">Why Wearing Medieval Armor is This Summer's Quiet Luxury Trend</a></li>
+                            <li><a href="/404">New Start-Up Promises to Disrupt Sleep by Monetizing Your Dreams</a></li>
+                            <li><a href="/404">Influencer Apologizes for Sponsoring the Concept of Regret</a></li>
+                            <li><a href="/404">Why Wearing Medieval Armor is This Summer's Quiet Luxury Trend</a></li>
                         </ul>
                     </div>
                     <div class="dept-col">
                         <h4>Late Empire</h4>
                         <ul>
-                            <li><a href="#">Op-Ed: I Am Not Mad That the DMV Operates Out of a Wendy's Now</a></li>
-                            <li><a href="#">Inflation Update: A Vibe Check Will Now Cost You $45</a></li>
-                            <li><a href="#">Town Discovers Mayor Has Been Three Opossums in a Trench Coat Since 2018</a></li>
+                            <li><a href="/404">Op-Ed: I Am Not Mad That the DMV Operates Out of a Wendy's Now</a></li>
+                            <li><a href="/404">Inflation Update: A Vibe Check Will Now Cost You $45</a></li>
+                            <li><a href="/404">Town Discovers Mayor Has Been Three Opossums in a Trench Coat Since 2018</a></li>
                         </ul>
                     </div>
                 </div>
@@ -144,27 +137,5 @@
         </footer>
     </div>
 
-    <script>
-        const overlay = document.getElementById("video-overlay");
-        const video = document.getElementById("hero-video");
-
-        // When video ends: wait 1.5s, then fade out the overlay
-        video.addEventListener("ended", () => {
-            setTimeout(() => {
-                overlay.classList.add("fade-out");
-                // After the CSS transition completes, remove overlay from flow
-                overlay.addEventListener("transitionend", () => {
-                    overlay.style.display = "none";
-                }, { once: true });
-            }, 1500);
-        });
-
-        // Autoplay as soon as ready
-        video.play().catch(() => {
-            // If autoplay blocked, fade out immediately
-            overlay.classList.add("fade-out");
-            setTimeout(() => { overlay.style.display = "none"; }, 1200);
-        });
-    </script>
 </body>
 </html>
