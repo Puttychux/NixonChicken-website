@@ -137,6 +137,7 @@ html, body {
 #book {
     width: 1400px !important;
     height: 900px !important;
+    overflow: hidden;
     flex-shrink: 0;
     position: relative;
     background: var(--ink);
