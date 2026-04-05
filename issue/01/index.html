@@ -12,561 +12,764 @@
     <script src="https://unpkg.com/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 </head>
 <body>
-<div class="reader">
 
-    <!-- TOP BAR -->
-    <div class="reader-topbar">
-        <a href="/" class="back-home">&#8592; Nixon Chicken</a>
-        <span class="topbar-title">Issue 01 &mdash; March 2026</span>
-    </div>
-
-    <!-- SCALE WRAPPER: JS sets transform: scale() here for viewport fit -->
-    <div id="book-scale-wrapper">
-
-        <!-- FLIPBOOK STAGE -->
-        <div class="flipbook-stage">
-            <button class="nav-btn" id="btn-prev" aria-label="Previous page">&#8592;</button>
-
-            <!-- BOOK: StPageFlip mounts here. Exactly 1400×900px. -->
-            <div id="book">
-
-                <!-- =============================================
-                     PAGE 1 — COVER
-                     ============================================= -->
-                <div class="page page-cover" data-density="hard">
-                    <div class="cover-top-rule"></div>
-                    <div class="cover-meta-bar">
-                        <span>Est. 2026</span>
-                        <span>Vol. XLII &middot; No. 12</span>
-                        <span>March 2026</span>
-                        <span>$4.99 USD</span>
-                    </div>
-                    <div class="cover-masthead">
-                        <span class="cover-logo">Nixon Chicken</span>
-                        <span class="cover-tagline">&ldquo;Suits on the Ground&rdquo;</span>
-                    </div>
-                    <div class="cover-img">
-                        <img src="../../assets/goose.png" alt="A large and very serious goose">
-                    </div>
-                    <div class="cover-hed-block">
-                        <span class="cover-kicker">Lead Story &mdash; National Affairs</span>
-                        <div class="cover-headline">Congress Replaces Debt Ceiling with Large, Angry Goose</div>
-                    </div>
-                    <div class="cover-bottom-rule"></div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 2 — TABLE OF CONTENTS (left side)
-                     ============================================= -->
-                <div class="page" id="national-affairs">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Contents</span>
-                    </div>
-                    <div class="toc-page">
-                        <div class="toc-header">
-                            <span class="toc-label">Issue 01 &mdash; March 2026</span>
-                            <h2>In This Issue</h2>
-                        </div>
-                        <div class="toc-items">
-                            <div class="toc-section-head">Features</div>
-                            <div class="toc-item">
-                                <span class="toc-pg">4</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Congress Replaces Debt Ceiling with Large, Angry Goose</span>
-                                    <span class="toc-dek">Bipartisan waterfowl expected to honk aggressively through Q2.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">5</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">NASA Confirms: The Moon Is Just a Stale Ritz Cracker</span>
-                                    <span class="toc-dek">Scientists &ldquo;cautiously optimistic&rdquo; about sodium content.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">6</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Zoning Board Approves New Stop Sign; No Comment on Anything Else</span>
-                                    <span class="toc-dek">Plus: local infrastructure roundup.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">7</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</span>
-                                    <span class="toc-dek">7&ndash;2 decision; dissent filed by the pigeons.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">2</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 3 — TABLE OF CONTENTS (right side)
-                     ============================================= -->
-                <div class="page" id="science">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Contents</span>
-                    </div>
-                    <div class="toc-page">
-                        <div class="toc-header">
-                            <span class="toc-label">&nbsp;</span>
-                            <h2>&nbsp;</h2>
-                        </div>
-                        <div class="toc-items">
-                            <div class="toc-section-head">Also</div>
-                            <div class="toc-item">
-                                <span class="toc-pg">8</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">DOE Admits Grid Is Powered by Three Middle Managers on Treadmills</span>
-                                    <span class="toc-dek">Gary has not taken a break since 2019.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">9</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Pentagon Replaces Strategic Command with Magic 8-Ball</span>
-                                    <span class="toc-dek">First query: &ldquo;Reply hazy, try again.&rdquo;</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">10</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Dispatch: Situation Room Briefs</span>
-                                    <span class="toc-dek">Two items of record from our correspondents.</span>
-                                </div>
-                            </div>
-                            <div class="toc-section-head">Departments</div>
-                            <div class="toc-item">
-                                <span class="toc-pg">11</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">The Situation Room</span>
-                                    <span class="toc-dek">Observations from the field.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">12</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">Cultural Debris</span>
-                                    <span class="toc-dek">What remains.</span>
-                                </div>
-                            </div>
-                            <div class="toc-item">
-                                <span class="toc-pg">13</span>
-                                <div class="toc-entry">
-                                    <span class="toc-title">American Poultry</span>
-                                    <span class="toc-dek">The birds, and what they know.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">3</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 4 — National Affairs: The Goose
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">National Affairs</span>
-                    </div>
-                    <div class="page-content">
-                        <div class="art-header">
-                            <span class="art-category">National Affairs</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">Congress Replaces Debt Ceiling with Large, Angry Goose</a></h2>
-                            <p class="art-byline">By A. J. Clipboard &mdash; Washington Bureau</p>
-                        </div>
-                        <div class="art-img">
-                            <img src="../../assets/goose.png" alt="The Large, Angry Goose">
-                        </div>
-                        <div class="art-teaser">
-                            <p>In a stunning 3&nbsp;a.m. vote, the House officially abandoned the statutory debt limit in favor of releasing a 40-pound Canada Goose into the Capitol rotunda. The goose&rsquo;s honk has since been designated a quorum.</p>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">4</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 5 — Science & Truth: The Moon
-                     ============================================= -->
-                <div class="page" id="science">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Science &amp; Truth</span>
-                    </div>
-                    <div class="page-content">
-                        <div class="art-header">
-                            <span class="art-category">Science &amp; Truth</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">NASA Confirms: The Moon Is Just a Stale Ritz Cracker</a></h2>
-                            <p class="art-byline">Dr. Phyllis P. Crisco &mdash; Science Correspondent</p>
-                        </div>
-                        <div class="art-img">
-                            <img src="../../assets/ritz_moon.png" alt="The Moon, which is a cracker">
-                        </div>
-                        <div class="art-teaser">
-                            <p>Scientists are &ldquo;cautiously optimistic&rdquo; about sodium content. Ongoing study into whether it pairs well with brie.</p>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">5</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 6 — Local Gov: Zoning Board
-                     ============================================= -->
-                <div class="page" id="jurisprudence">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Local Government</span>
-                    </div>
-                    <div class="text-page">
-                        <div class="text-header">
-                            <span class="art-category">Local Government</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">Zoning Board Approves New Stop Sign; No Comment on Anything Else</a></h2>
-                            <p class="art-byline">By Lt. Col. (Ret.) Nancy Prune &mdash; Municipal Desk</p>
-                        </div>
-                        <div class="text-body">
-                            <div class="art-teaser" style="border-top:none; padding:0;">
-                                <p>The Tri-County Zoning Commission voted 4&ndash;1 to approve a new octagonal stop sign at the corner of Elm and Route 9. The dissenting vote has not been explained. Neither has the agenda item labeled &ldquo;Other Business (Do Not Read Aloud).&rdquo;</p>
-                            </div>
-                            <div class="sidebar-box">
-                                <span class="box-label">Infrastructure Roundup</span>
-                                <div class="box-hed">Elsewhere in the Built Environment</div>
-                                <p>The bridge on Route 7 has been &ldquo;under review&rdquo; since 2011. The water tower was painted a new shade of beige described by officials as &ldquo;forward-facing ecru.&rdquo; Three crosswalks remain theoretical.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">6</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 7 — Jurisprudence: Pigeon Man
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Jurisprudence</span>
-                    </div>
-                    <div class="page-content">
-                        <div class="art-header">
-                            <span class="art-category">Jurisprudence</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</a></h2>
-                            <p class="art-byline">B. F. Wainwright &mdash; Courts Correspondent</p>
-                        </div>
-                        <div class="art-img">
-                            <img src="../../assets/pigeon_man.png" alt="The pigeon man">
-                        </div>
-                        <div class="art-teaser">
-                            <p>7&ndash;2 decision upholds constitutional right to sustained avian confrontation. Dissent filed by the pigeons; ruled inadmissible.</p>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">7</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 8 — Infrastructure: Gary on the Treadmill
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Infrastructure</span>
-                    </div>
-                    <div class="text-page">
-                        <div class="text-header">
-                            <span class="art-category">Infrastructure</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">DOE Admits Grid Is Powered by Three Middle Managers on Treadmills</a></h2>
-                            <p class="art-byline">By Ambrose J. Clipboard &mdash; Energy Desk</p>
-                        </div>
-                        <div class="text-body">
-                            <div class="art-teaser" style="border-top:none; padding:0;">
-                                <p>The Department of Energy acknowledged Tuesday that the national electrical grid has been sustained since 2019 by Gary Mehta, 47, of Falls Church, Virginia, who has not left his treadmill. Two colleagues operate backup units during Gary&rsquo;s quarterly performance reviews.</p>
-                            </div>
-                            <div class="sidebar-box">
-                                <span class="box-label">By The Numbers</span>
-                                <div class="box-hed">Gary&rsquo;s Output, Q1 2026</div>
-                                <p>14,000 steps/day. 2.3 megawatts/month. One outstanding TPS report. Zero PTO days claimed. Zero PTO days offered.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">8</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 9 — Espionage: Magic 8-Ball
-                     ============================================= -->
-                <div class="page" id="departments">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Espionage &amp; Strategy</span>
-                    </div>
-                    <div class="page-content">
-                        <div class="art-header">
-                            <span class="art-category">Espionage &amp; Strategy</span>
-                            <hr class="art-rule">
-                            <h2 class="art-headline"><a href="/404">Pentagon Replaces Strategic Command with Magic 8-Ball</a></h2>
-                            <p class="art-byline">Col. H. T. Redgate &mdash; Defense Desk</p>
-                        </div>
-                        <div class="art-img">
-                            <img src="../../assets/space_cracker.png" alt="The Magic 8-Ball in its command center">
-                        </div>
-                        <div class="art-teaser">
-                            <p>First query returned &ldquo;Reply hazy, try again.&rdquo; Officials describe this as &ldquo;a marked improvement.&rdquo;</p>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">9</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 10 — Dispatch
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Dispatch</span>
-                    </div>
-                    <div class="dispatch-page">
-                        <div class="dispatch-header">
-                            <span class="section-super">From the Field</span>
-                            <h2>The Situation Room Briefs</h2>
-                        </div>
-                        <div class="dispatch-items">
-                            <div class="dispatch-item">
-                                <span class="dispatch-dateline">Washington, D.C. &mdash; March 2026</span>
-                                <h3><a href="/404">President Signs Executive Order Renaming All Tuesdays &ldquo;Provisional Monday&rdquo;</a></h3>
-                                <p>Effective immediately. Commerce Department reports &ldquo;scheduling concerns.&rdquo; Calendar industry in emergency session.</p>
-                            </div>
-                            <div class="dispatch-item">
-                                <span class="dispatch-dateline">Geneva &mdash; March 2026</span>
-                                <h3><a href="/404">UN Passes Non-Binding Resolution Acknowledging the Problem</a></h3>
-                                <p>Member states agreed the situation &ldquo;warrants attention.&rdquo; Which situation was not specified. Resolution passed 142&ndash;3 with 11 abstentions and one country that sent a casserole.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">10</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 11 — Department: The Situation Room
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Departments</span>
-                    </div>
-                    <div class="dept-page">
-                        <div class="dept-banner">
-                            <span class="dept-super">Department</span>
-                            <div class="dept-name">The Situation Room</div>
-                        </div>
-                        <div class="dept-items">
-                            <div class="dept-item">
-                                <span class="dept-item-category">Observed</span>
-                                <h3><a href="/404">State Dept. Cafeteria Menu Redacted in Its Entirety</a></h3>
-                                <p>All items listed as &ldquo;[SEE ATTACHMENT C].&rdquo; Attachment C has not been located.</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">On Record</span>
-                                <h3><a href="/404">Official Denies Report. Report Confirms Denial. Denial Denied.</a></h3>
-                                <p>The press office released a statement containing the word &ldquo;categorically&rdquo; five times and no verifiable facts.</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">Noted</span>
-                                <h3><a href="/404">Senator Seen Talking to a Duck for 40 Minutes; Refuses to Characterize the Meeting</a></h3>
-                                <p>Aides confirm the duck had no comment. Senator&rsquo;s office says the duck was &ldquo;a private citizen.&rdquo;</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">11</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 12 — Department: Cultural Debris
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Departments</span>
-                    </div>
-                    <div class="dept-page">
-                        <div class="dept-banner">
-                            <span class="dept-super">Department</span>
-                            <div class="dept-name">Cultural Debris</div>
-                        </div>
-                        <div class="dept-items">
-                            <div class="dept-item">
-                                <span class="dept-item-category">Film</span>
-                                <h3><a href="/404">New Documentary Asks Whether Anything Happened in the 1990s</a></h3>
-                                <p>117 minutes. Inconclusive. The director has strong opinions about cargo pants.</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">Literature</span>
-                                <h3><a href="/404">Novel Published Entirely in the Second Person; Critics Uncomfortable</a></h3>
-                                <p>You found this unsettling. You were right to.</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">Music</span>
-                                <h3><a href="/404">Local Band Describes Sound as &ldquo;Post-Everything&rdquo;; No Further Questions Accepted</a></h3>
-                                <p>Three-song EP. One song is a 14-minute silence. The other two are the same song played in different keys.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">12</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 13 — Department: American Poultry
-                     ============================================= -->
-                <div class="page">
-                    <div class="running-head">
-                        <span class="rh-pub">Nixon Chicken</span>
-                        <span class="rh-section">Departments</span>
-                    </div>
-                    <div class="dept-page">
-                        <div class="dept-banner">
-                            <span class="dept-super">Department</span>
-                            <div class="dept-name">American Poultry</div>
-                        </div>
-                        <div class="dept-items">
-                            <div class="dept-item">
-                                <span class="dept-item-category">Field Report</span>
-                                <h3><a href="/404">Goose Census Incomplete; Half the Geese Refused to Participate</a></h3>
-                                <p>Federal enumerators described the encounter as &ldquo;hostile but not unprecedented.&rdquo; Seven clipboards were lost.</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">Taxonomy</span>
-                                <h3><a href="/404">New Chicken Breed Discovered; Scientists Unsure Why It Looks Disappointed</a></h3>
-                                <p>The Appalachian Somber Hen has been observed staring into the middle distance since its identification in February. Egg production is described as &ldquo;resigned.&rdquo;</p>
-                            </div>
-                            <div class="dept-item">
-                                <span class="dept-item-category">Correspondence</span>
-                                <h3><a href="/404">Letter to the Editor: I Have Questions About the Rooster</a></h3>
-                                <p>&mdash; Name Withheld, Flagstaff. [Editors&rsquo; note: We all have questions about the rooster.]</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-foot">
-                        <span class="pf-num">13</span>
-                        <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
-                    </div>
-                </div>
-
-                <!-- =============================================
-                     PAGE 14 — BACK COVER
-                     ============================================= -->
-                <div class="page page-back-cover" data-density="hard">
-                    <div class="bc-top-rule"></div>
-                    <div class="bc-header">
-                        <span class="bc-logo">Nixon Chicken</span>
-                        <span class="bc-tagline">&ldquo;Suits on the Ground&rdquo; &mdash; Est. 2026</span>
-                    </div>
-                    <div class="bc-body">
-                        <div>
-                            <span class="bc-section-label">Masthead &amp; Operations</span>
-                            <div class="bc-staff-box">
-                                <div class="bc-staff-item"><strong>Editor in Chief:</strong> J. P. Redtape</div>
-                                <div class="bc-staff-item"><strong>Managing Editor (Existential Threats):</strong> Brenda V. Mumble</div>
-                                <div class="bc-staff-item"><strong>Art Director:</strong> Cornelius T. Graft</div>
-                                <div class="bc-staff-item"><strong>Deputy Art Director (Decorative Paranoia):</strong> Mildred Foxcroft</div>
-                                <div class="bc-staff-item"><strong>Chief Ombudsman &amp; Shredder Operator:</strong> &ldquo;Missing&rdquo; Pete Henderson</div>
-                                <div class="bc-staff-item"><strong>Director of Misinformation:</strong> <span class="bc-redacted">[REDACTED]</span></div>
-                                <div class="bc-staff-item"><strong>General Counsel (Emeritus):</strong> H. Wainwright Obscure, Esq.</div>
-                                <div class="bc-staff-item"><strong>Legal Intern:</strong> A Frightened Person</div>
-                                <div class="bc-staff-item"><strong>Sr. Correspondent (Domestic Collapse):</strong> Ambrose J. Clipboard</div>
-                                <div class="bc-staff-item"><strong>Bureau Chief (Swamp Operations):</strong> Lt. Col. (Ret.) Nancy Prune</div>
-                                <div class="bc-staff-item"><strong>Fact Checker:</strong> Currently Unavailable</div>
-                                <div class="bc-staff-item"><strong>Photography Editor:</strong> Someone&rsquo;s Nephew</div>
-                                <div class="bc-staff-item"><strong>Subscriptions Manager:</strong> The Ghost in Room 4B</div>
-                            </div>
-                        </div>
-                        <div class="bc-issue-info">
-                            <p>Nixon Chicken is published quarterly by Antigravity Concerns LLC. All events, persons, and poultry depicted herein are fictional. Any resemblance to actual geese, living or honking, is entirely coincidental and frankly alarming. &copy; 2026 Nixon Chicken Magazine. Do not attempt to feed the journalists.</p>
-                        </div>
-                    </div>
-                    <div class="bc-bottom-rule"></div>
-                </div>
-
-            </div><!-- /#book -->
-
-            <button class="nav-btn" id="btn-next" aria-label="Next page">&#8594;</button>
-        </div><!-- /.flipbook-stage -->
-
-        <!-- PAGE COUNTER -->
-        <div class="page-counter-bar">
-            <div class="counter-dot"></div>
-            <span id="page-counter">Page 1 of 14</span>
-            <div class="counter-dot"></div>
+    <!-- =========================================================
+         MASTHEAD — matches homepage brand
+         ========================================================= -->
+    <header class="masthead">
+        <div class="masthead-meta">
+            <span>Est. 2026</span>
+            <span>Issue 01 &mdash; March 2026</span>
+            <span>$4.99 USD</span>
         </div>
+        <a href="/" class="logo" style="text-decoration:none;">NIXON CHICKEN</a>
+        <p class="tagline">Just the Headlines</p>
+    </header>
 
-    </div><!-- /#book-scale-wrapper -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/issue/01" class="active">Issue 01</a></li>
+            <li><a href="/404">National Affairs</a></li>
+            <li><a href="/404">Science &amp; Truth</a></li>
+            <li><a href="/404">Departments</a></li>
+            <li><a href="/404">Subscribe</a></li>
+        </ul>
+    </nav>
 
-</div><!-- /.reader -->
+    <!-- =========================================================
+         READER
+         ========================================================= -->
+    <div class="reader">
+        <div id="book-scale-wrapper">
+            <div class="flipbook-stage">
+                <div id="book">
+
+                    <!-- ==========================================
+                         PAGE 1 — COVER
+                         ========================================== -->
+                    <div class="page page-cover" data-density="hard">
+                        <div class="cover-top-rule"></div>
+                        <div class="cover-meta-bar">
+                            <span>Est. 2026</span>
+                            <span>Vol. XLII &middot; No. 12</span>
+                            <span>March 2026</span>
+                            <span>$4.99 USD</span>
+                        </div>
+                        <div class="cover-masthead">
+                            <span class="cover-logo">Nixon Chicken</span>
+                            <span class="cover-tagline">Just the Headlines</span>
+                        </div>
+                        <div class="cover-img">
+                            <img src="../../assets/goose.png" alt="A large and very serious goose">
+                        </div>
+                        <div class="cover-hed-block">
+                            <span class="cover-kicker">Lead Story &mdash; National Affairs</span>
+                            <div class="cover-headline">Congress Replaces Debt Ceiling with Large, Angry Goose</div>
+                        </div>
+                        <div class="cover-bottom-rule"></div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 2 — TABLE OF CONTENTS (left / verso)
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">Contents</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="toc-page">
+                            <div class="toc-header">
+                                <span class="toc-label">Issue 01 &mdash; March 2026</span>
+                                <h2>In This Issue</h2>
+                            </div>
+                            <div class="toc-items">
+                                <div class="toc-section-head">Features</div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Congress Replaces Debt Ceiling with Large, Angry Goose</span>
+                                        <span class="toc-dek">Bipartisan waterfowl expected to honk aggressively through Q2.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(3)">4</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">NASA Confirms: The Moon Is Just a Stale Ritz Cracker</span>
+                                        <span class="toc-dek">Scientists &ldquo;cautiously optimistic&rdquo; about sodium content.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(4)">5</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Zoning Board Approves New Stop Sign; No Comment on Anything Else</span>
+                                        <span class="toc-dek">Plus: local infrastructure roundup.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(5)">6</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</span>
+                                        <span class="toc-dek">7&ndash;2 decision; dissent filed by the pigeons.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(6)">7</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">2</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 3 — TABLE OF CONTENTS (right / recto)
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">Contents</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="toc-page">
+                            <div class="toc-header">
+                                <span class="toc-label">&nbsp;</span>
+                                <h2>&nbsp;</h2>
+                            </div>
+                            <div class="toc-items">
+                                <div class="toc-section-head">Also in This Issue</div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">DOE Admits Grid Is Powered by Three Middle Managers on Treadmills</span>
+                                        <span class="toc-dek">Gary has not taken a break since 2019.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(7)">8</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Pentagon Replaces Strategic Command with Magic 8-Ball</span>
+                                        <span class="toc-dek">First query: &ldquo;Reply hazy, try again.&rdquo;</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(8)">9</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Dispatch: Situation Room Briefs</span>
+                                        <span class="toc-dek">Two items of record from our correspondents.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(9)">10</button>
+                                </div>
+                                <div class="toc-section-head">Departments</div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">The Situation Room</span>
+                                        <span class="toc-dek">Observations from the field.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(10)">11</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">Cultural Debris</span>
+                                        <span class="toc-dek">What remains.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(11)">12</button>
+                                </div>
+                                <div class="toc-item">
+                                    <div class="toc-entry">
+                                        <span class="toc-title">American Poultry</span>
+                                        <span class="toc-dek">The birds, and what they know.</span>
+                                    </div>
+                                    <button class="toc-pg" onclick="window.flipToPage(12)">13</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">3</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 4 — National Affairs: The Goose
+                         Left/verso page: pub name on outer-left
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">National Affairs</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="page-mixed">
+                            <!-- PRIMARY STORY: image left, headline right -->
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <img src="../../assets/goose.png" alt="The Large, Angry Goose">
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">National Affairs</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">Congress Replaces Debt Ceiling with Large, Angry Goose</a></h2>
+                                    <p class="art-byline">By A. J. Clipboard &mdash; Washington Bureau</p>
+                                    <div class="art-teaser">
+                                        <p>In a stunning 3&nbsp;a.m. vote, the House officially abandoned the statutory debt limit in favor of releasing a 40-pound Canada Goose into the Capitol rotunda. The goose&rsquo;s honk has since been designated a quorum.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- SECONDARY STORIES -->
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Science &amp; Truth</span>
+                                    <div class="sec-headline"><a href="/404">NASA Confirms: The Moon Is Just a Stale Ritz Cracker</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Local Government</span>
+                                    <div class="sec-headline"><a href="/404">Zoning Board Approves New Stop Sign; No Comment on Anything Else</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">4</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 5 — Science & Truth: The Moon
+                         Right/recto page: pub name on outer-right
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">Science &amp; Truth</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="page-mixed">
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <img src="../../assets/ritz_moon.png" alt="The Moon, which is a cracker">
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">Science &amp; Truth</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">NASA Confirms: The Moon Is Just a Stale Ritz Cracker</a></h2>
+                                    <p class="art-byline">Dr. Phyllis P. Crisco &mdash; Science Correspondent</p>
+                                    <div class="art-teaser">
+                                        <p>Scientists are &ldquo;cautiously optimistic&rdquo; about sodium content. An ongoing study is attempting to determine whether the Moon pairs well with brie, and if so, who is responsible.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Local Government</span>
+                                    <div class="sec-headline"><a href="/404">Zoning Board Approves New Stop Sign; No Comment on Anything Else</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Infrastructure</span>
+                                    <div class="sec-headline"><a href="/404">DOE Admits Grid Is Powered by Three Middle Managers on Treadmills</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">5</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 6 — Local Gov: Zoning Board
+                         Left/verso
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">Local Government</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="page-mixed">
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <div class="img-pending">
+                                        <div class="img-pending-icon">&#9744;</div>
+                                        <div class="img-pending-label">Image Pending</div>
+                                    </div>
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">Local Government</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">Zoning Board Approves New Stop Sign; No Comment on Anything Else</a></h2>
+                                    <p class="art-byline">By Lt. Col. (Ret.) Nancy Prune &mdash; Municipal Desk</p>
+                                    <div class="art-teaser">
+                                        <p>The Tri-County Zoning Commission voted 4&ndash;1 to approve a new octagonal stop sign at the corner of Elm and Route 9. The dissenting vote has not been explained. Neither has the agenda item labeled &ldquo;Other Business (Do Not Read Aloud).&rdquo;</p>
+                                    </div>
+                                    <div class="sidebar-box">
+                                        <span class="box-label">Infrastructure Roundup</span>
+                                        <div class="box-hed">Elsewhere in the Built Environment</div>
+                                        <p>The bridge on Route 7 has been &ldquo;under review&rdquo; since 2011. Three crosswalks remain theoretical.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">American Poultry</span>
+                                    <div class="sec-headline"><a href="/404">Goose Census Incomplete; Half the Geese Refused to Participate</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Dispatch</span>
+                                    <div class="sec-headline"><a href="/404">President Signs Executive Order Renaming All Tuesdays &ldquo;Provisional Monday&rdquo;</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">6</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 7 — Jurisprudence: Pigeon Man
+                         Right/recto
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">Jurisprudence</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="page-mixed">
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <img src="../../assets/pigeon_man.png" alt="The pigeon man">
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">Jurisprudence</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">Supreme Court Rules in Favor of Guy Who Screams at Pigeons</a></h2>
+                                    <p class="art-byline">B. F. Wainwright &mdash; Courts Correspondent</p>
+                                    <div class="art-teaser">
+                                        <p>7&ndash;2 decision upholds constitutional right to sustained avian confrontation. Dissent filed by the pigeons; ruled inadmissible on procedural grounds pending feather authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Dispatch</span>
+                                    <div class="sec-headline"><a href="/404">UN Passes Non-Binding Resolution Acknowledging the Problem</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Espionage &amp; Strategy</span>
+                                    <div class="sec-headline"><a href="/404">Pentagon Replaces Strategic Command with Magic 8-Ball</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">7</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 8 — Infrastructure: Gary
+                         Left/verso
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">Infrastructure</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="page-mixed">
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <div class="img-pending">
+                                        <div class="img-pending-icon">&#9744;</div>
+                                        <div class="img-pending-label">Image Pending</div>
+                                    </div>
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">Infrastructure</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">DOE Admits Grid Is Powered by Three Middle Managers on Treadmills</a></h2>
+                                    <p class="art-byline">By Ambrose J. Clipboard &mdash; Energy Desk</p>
+                                    <div class="art-teaser">
+                                        <p>The Department of Energy acknowledged Tuesday that the national electrical grid has been sustained since 2019 by Gary Mehta, 47, of Falls Church, Virginia, who has not left his treadmill. Two colleagues operate backup units during Gary&rsquo;s quarterly performance reviews.</p>
+                                    </div>
+                                    <div class="sidebar-box">
+                                        <span class="box-label">By the Numbers</span>
+                                        <div class="box-hed">Gary&rsquo;s Output, Q1 2026</div>
+                                        <p>14,000 steps/day. 2.3 megawatts/month. Zero PTO days claimed. Zero PTO days offered.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Cultural Debris</span>
+                                    <div class="sec-headline"><a href="/404">New Documentary Asks Whether Anything Happened in the 1990s</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">American Poultry</span>
+                                    <div class="sec-headline"><a href="/404">New Chicken Breed Discovered; Scientists Unsure Why It Looks Disappointed</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">8</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 9 — Espionage: Magic 8-Ball
+                         Right/recto
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">Espionage &amp; Strategy</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="page-mixed">
+                            <div class="primary-story">
+                                <div class="primary-img">
+                                    <img src="../../assets/space_cracker.png" alt="The Magic 8-Ball in its command center">
+                                </div>
+                                <div class="primary-text">
+                                    <span class="art-category">Espionage &amp; Strategy</span>
+                                    <hr class="art-rule">
+                                    <h2 class="art-headline"><a href="/404">Pentagon Replaces Strategic Command with Magic 8-Ball</a></h2>
+                                    <p class="art-byline">Col. H. T. Redgate &mdash; Defense Desk</p>
+                                    <div class="art-teaser">
+                                        <p>First query returned &ldquo;Reply hazy, try again.&rdquo; Officials describe this as &ldquo;a marked improvement over the previous system.&rdquo; Second query has not yet been authorized.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="secondary-stories">
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">Situation Room</span>
+                                    <div class="sec-headline"><a href="/404">State Dept. Cafeteria Menu Redacted in Its Entirety</a></div>
+                                </div>
+                                <div class="sec-item">
+                                    <div class="sec-img-box">
+                                        <div class="img-pending">
+                                            <div class="img-pending-icon">&#9744;</div>
+                                            <div class="img-pending-label">Image Pending</div>
+                                        </div>
+                                    </div>
+                                    <span class="sec-category">American Poultry</span>
+                                    <div class="sec-headline"><a href="/404">Letter to the Editor: I Have Questions About the Rooster</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">9</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 10 — Dispatch
+                         Left/verso
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">Dispatch</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="dispatch-page">
+                            <div class="dispatch-header">
+                                <span class="section-super">From the Field</span>
+                                <h2>The Situation Room Briefs</h2>
+                            </div>
+                            <div class="dispatch-items">
+                                <div class="dispatch-item">
+                                    <span class="dispatch-dateline">Washington, D.C. &mdash; March 2026</span>
+                                    <h3><a href="/404">President Signs Executive Order Renaming All Tuesdays &ldquo;Provisional Monday&rdquo;</a></h3>
+                                    <p>Effective immediately. Commerce Department reports &ldquo;scheduling concerns.&rdquo; Calendar industry in emergency session. A Hallmark spokesperson described the situation as &ldquo;catastrophic but manageable.&rdquo;</p>
+                                </div>
+                                <div class="dispatch-item">
+                                    <span class="dispatch-dateline">Geneva &mdash; March 2026</span>
+                                    <h3><a href="/404">UN Passes Non-Binding Resolution Acknowledging the Problem</a></h3>
+                                    <p>Member states agreed the situation &ldquo;warrants attention.&rdquo; Which situation was not specified. Resolution passed 142&ndash;3 with 11 abstentions and one country that sent a casserole.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">10</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 11 — Dept: The Situation Room
+                         Right/recto
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">The Situation Room</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="dept-page">
+                            <div class="dept-banner">
+                                <span class="dept-super">Department</span>
+                                <div class="dept-name">The Situation Room</div>
+                            </div>
+                            <div class="dept-items">
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Observed</span>
+                                    <h3><a href="/404">State Dept. Cafeteria Menu Redacted in Its Entirety</a></h3>
+                                    <p>All items listed as &ldquo;[SEE ATTACHMENT C].&rdquo; Attachment C has not been located.</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">On Record</span>
+                                    <h3><a href="/404">Official Denies Report. Report Confirms Denial. Denial Denied.</a></h3>
+                                    <p>The press office released a statement containing the word &ldquo;categorically&rdquo; five times and no verifiable facts.</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Noted</span>
+                                    <h3><a href="/404">Senator Seen Talking to a Duck for 40 Minutes; Refuses to Characterize the Meeting</a></h3>
+                                    <p>Aides confirm the duck had no comment. Senator&rsquo;s office says the duck was &ldquo;a private citizen.&rdquo;</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">11</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 12 — Dept: Cultural Debris
+                         Left/verso
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left">Nixon Chicken</span>
+                            <span class="rh-section">Cultural Debris</span>
+                            <span class="rh-outer-right"></span>
+                        </div>
+                        <div class="dept-page">
+                            <div class="dept-banner">
+                                <span class="dept-super">Department</span>
+                                <div class="dept-name">Cultural Debris</div>
+                            </div>
+                            <div class="dept-items">
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Film</span>
+                                    <h3><a href="/404">New Documentary Asks Whether Anything Happened in the 1990s</a></h3>
+                                    <p>117 minutes. Inconclusive. The director has strong opinions about cargo pants.</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Literature</span>
+                                    <h3><a href="/404">Novel Published Entirely in the Second Person; Critics Uncomfortable</a></h3>
+                                    <p>You found this unsettling. You were right to.</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Music</span>
+                                    <h3><a href="/404">Local Band Describes Sound as &ldquo;Post-Everything&rdquo;; No Further Questions Accepted</a></h3>
+                                    <p>Three-song EP. One song is a 14-minute silence. The other two are the same song played in different keys.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">12</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 13 — Dept: American Poultry
+                         Right/recto
+                         ========================================== -->
+                    <div class="page">
+                        <div class="running-head">
+                            <span class="rh-outer-left"></span>
+                            <span class="rh-section">American Poultry</span>
+                            <span class="rh-outer-right">Nixon Chicken</span>
+                        </div>
+                        <div class="dept-page">
+                            <div class="dept-banner">
+                                <span class="dept-super">Department</span>
+                                <div class="dept-name">American Poultry</div>
+                            </div>
+                            <div class="dept-items">
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Field Report</span>
+                                    <h3><a href="/404">Goose Census Incomplete; Half the Geese Refused to Participate</a></h3>
+                                    <p>Federal enumerators described the encounter as &ldquo;hostile but not unprecedented.&rdquo; Seven clipboards were lost.</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Taxonomy</span>
+                                    <h3><a href="/404">New Chicken Breed Discovered; Scientists Unsure Why It Looks Disappointed</a></h3>
+                                    <p>The Appalachian Somber Hen has been observed staring into the middle distance since identification in February. Egg production described as &ldquo;resigned.&rdquo;</p>
+                                </div>
+                                <div class="dept-item">
+                                    <span class="dept-item-category">Correspondence</span>
+                                    <h3><a href="/404">Letter to the Editor: I Have Questions About the Rooster</a></h3>
+                                    <p>&mdash; Name Withheld, Flagstaff. [Editors&rsquo; note: We all have questions about the rooster.]</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-foot">
+                            <span class="pf-num">13</span>
+                            <span class="pf-tagline">Nixon Chicken &mdash; March 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- ==========================================
+                         PAGE 14 — BACK COVER
+                         ========================================== -->
+                    <div class="page page-back-cover" data-density="hard">
+                        <div class="bc-top-rule"></div>
+                        <div class="bc-header">
+                            <span class="bc-logo">Nixon Chicken</span>
+                            <span class="bc-tagline">Just the Headlines &mdash; Est. 2026</span>
+                        </div>
+                        <div class="bc-body">
+                            <div>
+                                <span class="bc-section-label">Masthead &amp; Operations</span>
+                                <div class="bc-staff-box">
+                                    <div class="bc-staff-item"><strong>Editor in Chief:</strong> J. P. Redtape</div>
+                                    <div class="bc-staff-item"><strong>Managing Editor (Existential Threats):</strong> Brenda V. Mumble</div>
+                                    <div class="bc-staff-item"><strong>Art Director:</strong> Cornelius T. Graft</div>
+                                    <div class="bc-staff-item"><strong>Deputy Art Director (Decorative Paranoia):</strong> Mildred Foxcroft</div>
+                                    <div class="bc-staff-item"><strong>Chief Ombudsman &amp; Shredder Operator:</strong> &ldquo;Missing&rdquo; Pete Henderson</div>
+                                    <div class="bc-staff-item"><strong>Director of Misinformation:</strong> <span class="bc-redacted">[REDACTED]</span></div>
+                                    <div class="bc-staff-item"><strong>General Counsel (Emeritus):</strong> H. Wainwright Obscure, Esq.</div>
+                                    <div class="bc-staff-item"><strong>Legal Intern:</strong> A Frightened Person</div>
+                                    <div class="bc-staff-item"><strong>Sr. Correspondent (Domestic Collapse):</strong> Ambrose J. Clipboard</div>
+                                    <div class="bc-staff-item"><strong>Bureau Chief (Swamp Operations):</strong> Lt. Col. (Ret.) Nancy Prune</div>
+                                    <div class="bc-staff-item"><strong>Fact Checker:</strong> Currently Unavailable</div>
+                                    <div class="bc-staff-item"><strong>Photography Editor:</strong> Someone&rsquo;s Nephew</div>
+                                    <div class="bc-staff-item"><strong>Subscriptions Manager:</strong> The Ghost in Room 4B</div>
+                                </div>
+                            </div>
+                            <div class="bc-issue-info">
+                                <p>Nixon Chicken is published quarterly by Antigravity Concerns LLC. All events, persons, and poultry depicted herein are fictional. Any resemblance to actual geese, living or honking, is entirely coincidental and frankly alarming. &copy; 2026 Nixon Chicken Magazine. Do not attempt to feed the journalists.</p>
+                            </div>
+                        </div>
+                        <div class="bc-bottom-rule"></div>
+                    </div>
+
+                </div><!-- /#book -->
+            </div><!-- /.flipbook-stage -->
+        </div><!-- /#book-scale-wrapper -->
+    </div><!-- /.reader -->
+
+    <!-- =========================================================
+         SITE FOOTER
+         ========================================================= -->
+    <footer class="site-footer">
+        <div class="logo footer-logo">NIXON CHICKEN</div>
+        <p class="footer-tagline">Just the Headlines</p>
+        <p class="footer-staff">
+            <strong>Editor in Chief:</strong> J. P. Redtape &nbsp;&bull;&nbsp;
+            <strong>Managing Editor:</strong> Brenda V. Mumble &nbsp;&bull;&nbsp;
+            <strong>Director of Misinformation:</strong> [REDACTED]
+        </p>
+        <p class="copyright">&copy; 2026 Nixon Chicken Magazine. Do not attempt to feed the journalists.</p>
+    </footer>
+
+    <!-- =========================================================
+         FIXED BOTTOM NAV BAR
+         ========================================================= -->
+    <div class="flip-nav" id="flip-nav">
+        <button class="flip-nav-btn" id="btn-prev" aria-label="Previous page">&#8592; Prev</button>
+        <div class="flip-nav-counter" id="flip-counter">
+            <!-- populated by JS -->
+        </div>
+        <button class="flip-nav-btn" id="btn-next" aria-label="Next page">Next &#8594;</button>
+    </div>
 
 <script>
 (function () {
     'use strict';
 
-    // Hard-coded page dimensions — do not change these
-    var PAGE_W  = 700;
-    var PAGE_H  = 900;
-    var BOOK_W  = PAGE_W * 2;   // 1400
-    var TOTAL   = 14;
+    var PAGE_W = 700;
+    var PAGE_H = 900;
+    var BOOK_W = PAGE_W * 2;
+    var TOTAL  = 14;
 
-    var bookEl   = document.getElementById('book');
-    var wrapper  = document.getElementById('book-scale-wrapper');
-    var counter  = document.getElementById('page-counter');
-    var btnPrev  = document.getElementById('btn-prev');
-    var btnNext  = document.getElementById('btn-next');
+    var bookEl  = document.getElementById('book');
+    var wrapper = document.getElementById('book-scale-wrapper');
+    var counter = document.getElementById('flip-counter');
+    var btnPrev = document.getElementById('btn-prev');
+    var btnNext = document.getElementById('btn-next');
 
-    // Set book container to exact pixel dimensions
+    // Set book to exact pixel dimensions
     bookEl.style.width    = BOOK_W + 'px';
     bookEl.style.height   = PAGE_H + 'px';
     bookEl.style.position = 'relative';
 
-    // Collect page elements
     var pageNodes = Array.prototype.slice.call(bookEl.querySelectorAll('.page'));
 
-    // Init StPageFlip
+    // Init StPageFlip — useMouseEvents: false eliminates corner curl entirely
     var pageFlip = new St.PageFlip(bookEl, {
         width:               PAGE_W,
         height:              PAGE_H,
@@ -576,47 +779,83 @@
         usePortrait:         false,
         startZIndex:         10,
         autoSize:            false,
-        maxShadowOpacity:    0.5,
+        maxShadowOpacity:    0.4,
         showCover:           true,
         mobileScrollSupport: false,
-        useMouseEvents:      true,
-        clickEventForward:   false,
-        disableFlipByClick:  false
+        useMouseEvents:      false,   // disables corner curl + drag flipping
+        clickEventForward:   true
     });
 
     pageFlip.loadFromHTML(pageNodes);
 
-    // Update counter and button states
+    // Global helper for TOC onclick handlers
+    window.flipToPage = function (index) {
+        pageFlip.flip(index);
+    };
+
+    // Build the counter HTML with clickable page numbers
     function updateUI() {
         var cur = pageFlip.getCurrentPageIndex();
-        // StPageFlip page index is 0-based; cover = 0
-        var displayNum = cur + 1;
-        counter.textContent = 'Page ' + displayNum + ' of ' + TOTAL;
+
+        // Render counter
+        var html = '';
+        if (cur === 0) {
+            // Cover — single page
+            html = '<button class="flip-pg-btn" data-flip="0">1</button>'
+                 + '<span class="flip-nav-of">&nbsp;of ' + TOTAL + '</span>';
+        } else if (cur >= TOTAL - 1) {
+            // Back cover — single page
+            html = '<button class="flip-pg-btn" data-flip="' + (TOTAL-1) + '">' + TOTAL + '</button>'
+                 + '<span class="flip-nav-of">&nbsp;of ' + TOTAL + '</span>';
+        } else {
+            // Spread: two clickable page numbers
+            var lNum = cur + 1;
+            var rNum = cur + 2;
+            html = '<button class="flip-pg-btn" data-flip="' + cur + '">' + lNum + '</button>'
+                 + '<span class="flip-nav-sep">&ndash;</span>'
+                 + '<button class="flip-pg-btn" data-flip="' + (cur + 1) + '">' + rNum + '</button>'
+                 + '<span class="flip-nav-of">&nbsp;of ' + TOTAL + '</span>';
+        }
+        counter.innerHTML = html;
+
+        // Re-attach flip handlers on dynamically rendered buttons
+        counter.querySelectorAll('.flip-pg-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                pageFlip.flip(parseInt(this.getAttribute('data-flip'), 10));
+            });
+        });
+
         btnPrev.disabled = (cur === 0);
         btnNext.disabled = (cur >= TOTAL - 1);
     }
 
-    pageFlip.on('flip', function () { updateUI(); });
+    pageFlip.on('flip',        function () { updateUI(); });
     pageFlip.on('changeState', function () { updateUI(); });
 
     btnPrev.addEventListener('click', function () { pageFlip.flipPrev(); });
     btnNext.addEventListener('click', function () { pageFlip.flipNext(); });
 
-    // Scale the book to fit the viewport
+    // Scale book to fit available viewport space
     function scaleToFit() {
-        var vw = window.innerWidth;
-        var vh = window.innerHeight;
-        // Available width: vw minus some margin; available height: vh minus topbar (~80px) minus counter (~50px)
-        var availW = vw - 160;   // 80px each side for nav btns
-        var availH = vh - 160;   // topbar + counter + padding
+        var mastH  = (document.querySelector('.masthead')  || {offsetHeight: 110}).offsetHeight;
+        var navH   = (document.querySelector('.main-nav')  || {offsetHeight:  44}).offsetHeight;
+        var barH   = 64;   // fixed nav bar
+        var padV   = 32;   // breathing room top + bottom
 
-        var scaleW = availW / BOOK_W;
+        var availH = window.innerHeight - mastH - navH - barH - padV;
+        var availW = window.innerWidth  - 80;   // side margins
+
         var scaleH = availH / PAGE_H;
-        var scale  = Math.min(scaleW, scaleH, 1); // never scale UP beyond 1:1
+        var scaleW = availW / BOOK_W;
+        var scale  = Math.min(scaleH, scaleW, 1);
 
-        wrapper.style.transform = 'scale(' + scale + ')';
-        // Adjust wrapper height so the reader doesn't add extra scroll
-        wrapper.style.marginBottom = Math.round((PAGE_H * scale) - PAGE_H) + 'px';
+        // Apply scale to wrapper; shift margin so the page below doesn't gap
+        wrapper.style.transformOrigin = 'top center';
+        wrapper.style.transform       = 'scale(' + scale + ')';
+        // Collapse the layout space consumed to the scaled height
+        var scaledH = Math.round(PAGE_H * scale);
+        wrapper.style.height = scaledH + 'px';
+        wrapper.style.overflow = 'hidden';
     }
 
     window.addEventListener('resize', scaleToFit);
