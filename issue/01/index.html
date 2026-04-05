@@ -20,7 +20,7 @@
         <div class="masthead-meta">
             <span>Est. 2026</span>
             <span>Issue 01 &mdash; March 2026</span>
-            <span>$4.99 USD</span>
+            
         </div>
         <a href="/" class="logo" style="text-decoration:none;">NIXON CHICKEN</a>
         <p class="tagline">Just the Headlines</p>
@@ -54,7 +54,7 @@
                             <span>Est. 2026</span>
                             <span>Vol. XLII &middot; No. 12</span>
                             <span>March 2026</span>
-                            <span>$4.99 USD</span>
+                            
                         </div>
                         <div class="cover-masthead">
                             <span class="cover-logo">Nixon Chicken</span>
@@ -722,6 +722,13 @@
     pageFlip.on('flip',        function () { updateUI(); });
     pageFlip.on('changeState', function () { updateUI(); });
 
+    // TOC back button
+    var tocBtn = document.createElement("button");
+    tocBtn.className = "flip-nav-btn";
+    tocBtn.style.cssText = "min-width:auto;padding:10px 16px;font-size:11px;";
+    tocBtn.textContent = "CONTENTS";
+    tocBtn.addEventListener("click", function() { pageFlip.flip(1); });
+    document.getElementById("flip-nav").insertBefore(tocBtn, document.getElementById("btn-prev"));
     btnPrev.addEventListener('click', function () { pageFlip.flipPrev(); });
     btnNext.addEventListener('click', function () { pageFlip.flipNext(); });
 
